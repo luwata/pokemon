@@ -1,0 +1,8 @@
+﻿#liste des fichiers à ignorer
+.idea/
+venv/
+
+
+
+__pycache__
+.idea
