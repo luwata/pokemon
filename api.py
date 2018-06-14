@@ -7,7 +7,7 @@ import mysql.connector
 
 @hug.get('/pokemon')
 def pokemonDisplayAll():
-    """Affiche tous les pokemons de la base"""
+    """Affiche tous les pokemons """
     db = mysql.connector.connect(host="localhost", user="root", password="", database="pokebase")
     cursor = db.cursor()
     cursor.execute("""SELECT * FROM pokemon""")
