@@ -1,22 +1,41 @@
-# filename: happy_birthday.py
+# filename: api.py
 """A basic (single function) API written using hug"""
+
 import hug
+import mysql.connector
 
 
-@hug.get('/happy_birthday')
-def happy_birthday(name, age:hug.types.number=1):
-    """Says happy birthday to a user"""
-    return "Happy {age} Birthday {name}!".format(**locals())
+@hug.get('/pokemon')
+def pokemonDisplayAll():
+    """Affiche tous les pokemons de la base"""
+    db = mysql.connector.connect(host="localhost", user="root", password="", database="pokebase")
+    cursor = db.cursor()
+    cursor.execute("""SELECT * FROM pokemon""")
+    f = cursor.fetchall()
+    cursor.close()
+    db.close()
+    return f
 
-@hug.get('/greet/{event}')
-def greet(event: str):
-    """Greets appropriately (from http://blog.ketchum.com/how-to-write-10-common-holiday-greetings/)  """
-    greetings = "Happy"
-    if event == "Christmas":
-        greetings = "Merry"
-    if event == "Kwanzaa":
-        greetings = "Joyous"
-    if event == "wishes":
-        greetings = "Warm"
+@hug.post('/pokemon/add')
+def pokemonAdd(ref_pokemon, nom, type_pok, total, hp, attack, defense, sp_atk, sp_def, speed):
+    """ Ajoute un pokemon """
+    db = mysql.connector.connect(host="localhost", user="root", password="", database="pokebase")
+    cursor = db.cursor()
+    req = (ref_pokemon, nom, type_pok, total, hp, attack, defense, sp_atk, sp_def, speed)
+    f = cursor.execute("""INSERT INTO pokemon (ref_pokemon, nom, type, total, hp, attack, defense, sp_atk, sp_def, speed) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""", req)
+    db.commit()
+    cursor.close()
+    db.close()
+    return f
 
-    return "{greetings} {event}!".format(**locals())
+@hug.delete('/pokemon/add')
+def pokemonAdd(ref_pokemon, nom, type_pok, total, hp, attack, defense, sp_atk, sp_def, speed):
+    """ Ajoute un pokemon """
+    db = mysql.connector.connect(host="localhost", user="root", password="", database="pokebase")
+    cursor = db.cursor()
+    req = (ref_pokemon, nom, type_pok, total, hp, attack, defense, sp_atk, sp_def, speed)
+    f = cursor.execute("""INSERT INTO pokemon (ref_pokemon, nom, type, total, hp, attack, defense, sp_atk, sp_def, speed) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""", req)
+    db.commit()
+    cursor.close()
+    db.close()
+    return f

@@ -74,13 +74,14 @@ for i in range(0, len(type)):
 
 """ACTIONS DE TESTS"""
 
+
+
+
 pokemon()
 grabType()
-
-
-
-
 db.commit()
+
+
 cursor.close()
 db.close()
 
