@@ -68,7 +68,7 @@ http://localhost:8000/pokemon
 Pour les autres fonctionnalités de l'API, il faut utiliser l'outil __Postman__.
 On peut le télécharger sur le lien suivant : https://www.getpostman.com/apps
 
-Les fonctionnalités sont listées dans le dossier __documentation API__.
+Les fonctionnalités sont listées dans le dossier __swagger.yaml__.
 Pour consulter la documentation, ouvrir le fichier __index.html__
 
 -----------------
