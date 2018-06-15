@@ -18,7 +18,7 @@ def pokemonDisplayAll():
 
 
 @hug.post('/pokemon/add')
-def pokemonAdd(ref_pokemon, nom, type_pok, total, hp, attack, defense, sp_atk, sp_def, speed):
+def pokemonAdd(ref_pokemon, nom, type_pok, hp, attack, defense, sp_atk, sp_def, speed):
     """ Ajoute un pokemon """
     db = mysql.connector.connect(host="localhost", user="root", password="", database="pokebase")
     cursor = db.cursor()
@@ -26,6 +26,7 @@ def pokemonAdd(ref_pokemon, nom, type_pok, total, hp, attack, defense, sp_atk, s
     cursor.execute("""SELECT EXISTS(SELECT * FROM pokemon WHERE nom =%s )""", (nom, ))
     test = cursor.fetchone()
     if int(test[0]) == 0:
+        total = hp + attack + defense + sp_atk + sp_def + speed
         req = (ref_pokemon, nom, type_pok, total, hp, attack, defense, sp_atk, sp_def, speed)
         cursor.execute("""INSERT INTO pokemon (ref_pokemon, nom, type, total, hp, attack, defense, sp_atk, sp_def, speed) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""", req)
         db.commit()
@@ -40,13 +41,14 @@ def pokemonAdd(ref_pokemon, nom, type_pok, total, hp, attack, defense, sp_atk, s
 
 
 @hug.put('/pokemon/update')
-def pokemonUpdate(pokname, ref_pokemon, nom, type_pok, total, hp, attack, defense, sp_atk, sp_def, speed):
+def pokemonUpdate(pokname, ref_pokemon, nom, type_pok, hp, attack, defense, sp_atk, sp_def, speed):
     """ Modifie un pokemon """
     db = mysql.connector.connect(host="localhost", user="root", password="", database="pokebase")
     cursor = db.cursor()
     cursor.execute("""SELECT EXISTS(SELECT * FROM pokemon WHERE nom =%s )""", (nom,))
     test = cursor.fetchone()
     if int(test[0]) == 0:
+        total = hp + attack + defense + sp_atk + sp_def + speed
         req = (ref_pokemon, nom, type_pok, total, hp, attack, defense, sp_atk, sp_def, speed, pokname)
         cursor.execute("""UPDATE pokemon SET ref_pokemon=%s, nom=%s, type=%s, total=%s, hp=%s, attack=%s, defense=%s, sp_atk=%s, sp_def=%s, speed=%s WHERE nom =%s""", req)
         db.commit()

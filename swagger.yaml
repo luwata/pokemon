@@ -1,0 +1,135 @@
+---
+info:
+  _postman_id: 2dd7a4e5-d56b-4e5e-9ebd-306e54600c11
+  name: pokemon
+  schema: https://schema.getpostman.com/json/collection/v2.1.0/collection.json
+item:
+- name: delete with real name
+  request:
+    method: DELETE
+    header: []
+    body:
+      mode: formdata
+      formdata:
+      - key: namepok
+        value: ''
+        description: Nom du pokemon à supprimer
+        type: text
+    url:
+      raw: http://localhost:8000/pokemon/delete
+      protocol: http
+      host:
+      - localhost
+      port: '8000'
+      path:
+      - pokemon
+      - delete
+    description: delete pokemon
+  response: []
+- name: get all
+  request:
+    method: GET
+    header: []
+    body: {}
+    url:
+      raw: http://localhost:8000/pokemon/
+      protocol: http
+      host:
+      - localhost
+      port: '8000'
+      path:
+      - pokemon
+      - ''
+    description: Cette requête permet d'afficher tous les pokemons
+  response: []
+- name: post add with several parameters
+  request:
+    method: POST
+    header: []
+    body: {}
+    url:
+      raw: http://localhost:8000/pokemon/add?ref_pokemon&nom&type_pok&hp&attack&defense&sp_atk&sp_def&speed
+      protocol: http
+      host:
+      - localhost
+      port: '8000'
+      path:
+      - pokemon
+      - add
+      query:
+      - key: ref_pokemon
+        value: 
+        description: Valeur qui modifie la référence du pokemon
+      - key: nom
+        value: 
+        description: Valeur qui modifie le nom du pokemon
+      - key: type_pok
+        value: 
+        description: Valeur qui modifie le sort du pokemon
+      - key: hp
+        value: 
+        description: Valeur qui modifie la vie du pokemon
+      - key: attack
+        value: 
+        description: Valeur qui modifie l'attaque du pokemon
+      - key: defense
+        value: 
+        description: Valeur qui modifie la défense du pokemon
+      - key: sp_atk
+        value: 
+        description: Valeur qui modifie la vitesse d'attaque du pokemon
+      - key: sp_def
+        value: 
+        description: Valeur qui modifie la vitesse de défense du pokemon
+      - key: speed
+        value: 
+        description: Valeur qui modifie la vitesse de déplacement du pokemon
+    description: Requête qui permet d'ajouter un pokemon
+  response: []
+- name: put update with several parameters
+  request:
+    method: PUT
+    header: []
+    body: {}
+    url:
+      raw: http://localhost:8000/pokemon/update?pokname&ref_pokemon&nom&type_pok&hp&attack&defense&sp_atk&sp_def&speed
+      protocol: http
+      host:
+      - localhost
+      port: '8000'
+      path:
+      - pokemon
+      - update
+      query:
+      - key: pokname
+        value: 
+        description: Nom du pokémon qu'on souhaite modifier
+      - key: ref_pokemon
+        value: 
+        description: Valeur qui modifie la référence du pokemon
+      - key: nom
+        value: 
+        description: Valeur qui modifie le nom du pokemon
+      - key: type_pok
+        value: 
+        description: Valeur qui modifie le sort du pokemon
+      - key: hp
+        value: 
+        description: Valeur qui modifie la vie du pokemon
+      - key: attack
+        value: 
+        description: Valeur qui modifie l'attaque du pokemon
+      - key: defense
+        value: 
+        description: Valeur qui modifie la défense du pokemon
+      - key: sp_atk
+        value: 
+        description: Valeur qui modifie la vitesse d'attaque du pokemon
+      - key: sp_def
+        value: 
+        description: Valeur qui modifie la vitesse de défense du pokemon
+      - key: speed
+        value: 
+        description: Valeur qui modifie la vitesse de déplacement du pokemon
+    description: Cette requête permet de mettre à jour un pokemon
+  response: []
