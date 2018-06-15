@@ -1,19 +1,21 @@
 # Pokemon
 
-Pokemon est un catalogue qui recense tous les pokemons existant
-
-## Pour commencer
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Pokemon est un catalogue exhaustif qui recense presque tous les pokemons existant
 
 ### Pre-requis 
 
 Il est nécessaire pour faire fonctionner l'API d'installer python3 et les libraries suivantes :
-	+mysql-connector
-	+hug
-	+bs4 de beautifulsoup
+	-mysql-connector
+	-hug
+	-bs4 de beautifulsoup
 
 #### Sur Linux
+
+Il faut installer mysql pour que la base de donnée fonctionne
+
+```
+sudo apt-get install mysql-server
+```
 
 Exécutez les commandes décrites ci-dessous dans un terminal
 ```
@@ -25,7 +27,17 @@ pip3 install hug --upgrade
 ```
 #### Sur Windows
 
-Utilisez une console comme Cmder pour pouvoir éxecuter les même commandes ci-dessus : http://cmder.net/
+##### Installer MySQL
+	Pour télécharger MySQL, vous pouvez vous rendre sur le site suivant :
+
+	http://dev.mysql.com/downloads/mysql/#downloads
+
+	Sélectionnez l'OS sur lequel vous travaillez (Windows).
+
+	Téléchargez MySQL avec l'installeur (MSI Installer), puis exécutez le fichier téléchargé. L'installeur démarre et vous guide lors de l'installation.
+
+##### Installer un terminal pour éxécuter des commandes linux
+	Utilisez une console comme Cmder pour pouvoir éxecuter les même commandes ci-dessus : http://cmder.net/
 
 ### Installation
 
