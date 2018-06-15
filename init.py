@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import mysql.connector
 
+"""ENREGISTREMENT DU CATALOGUE HTML DANS UN FICHIER LOCAL"""
 url = "https://pokemondb.net/pokedex/all"
 
 # response = requests.get(url)
@@ -11,32 +12,23 @@ file = open("pokemon_catalog.html", "r")
 html = file.read()
 file.close()
 
-soup = BeautifulSoup(html, "html.parser")
-
 """CREATION ET CONNEXION DE LA BDD"""
-
 db = mysql.connector.connect(host="localhost", user="root", password="", database="pokebase")
 cursor = db.cursor()
 
-# cursor.execute("CREATE DATABASE IF NOT EXISTS pokebase")
-# Selection de la base de donnee
-# cursor.execute("USE pokebase")
-# cursor.execute(
-# "CREATE TABLE IF NOT EXISTS pokemon(id INT PRIMARY KEY NOT NULL, nom VARCHAR(100), type_id INT(11) NOT NULL, total INT(11) NOT NULL, hp INT(11) NOT NULL, attack INT(11) NOT NULL, defense INT(11) NOT NULL, sp_atk INT(11) NOT NULL, spd_def INT(11) NOT NULL, speed INT(11) NOT NULL);"
-# "CREATE TABLE IF NOT EXISTS type(id INT, skill VARCHAR(100);"
-# )
 
-"""INSERTION DES DONNEES DANS LA BDD"""
-
+"""VIDE LES TABLES DE LA BDD SI ELLES EXISTENT"""
 cursor.execute('USE pokebase')
 cursor.execute('SET FOREIGN_KEY_CHECKS = 0;')
 cursor.execute('TRUNCATE pokemon')
 cursor.execute('TRUNCATE type')
 cursor.execute('SET FOREIGN_KEY_CHECKS = 1')
 
-"""FONCTIONS POUR EXTRAIRE LES DONNEES"""
 
-# Recupere et insere tous les pokemons
+"""FONCTIONS POUR PARSER ET INSERER LES DONNEES"""
+soup = BeautifulSoup(html, "html.parser")
+
+# Recupere et insere tous les pokemons dans la table pokemon
 def pokemon():
 
     tab = soup.find(id="pokedex")
@@ -50,7 +42,7 @@ def pokemon():
             cursor.execute("""INSERT INTO pokemon(ref_pokemon, nom, type, total, hp, attack, defense, sp_atk, sp_def, speed) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""", namelist)
 
 
-# Recupere et insere tous les types
+# Recupere et insere tous les types dans la table type
 def grabType():
    tab = soup.find(id="filter-pkmn-type")
 
@@ -72,16 +64,12 @@ for i in range(0, len(type)):
     req = (id, skill)
     cursor.execute("""INSERT INTO type (id, skill) VALUES (%s,%s)""", req)
 
-"""ACTIONS DE TESTS"""
 
-
-
-
+"""INSERTION DES DONNEES DANS LA BDD"""
 pokemon()
 grabType()
+
 db.commit()
-
-
 cursor.close()
 db.close()
 
