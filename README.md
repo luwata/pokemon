@@ -58,9 +58,8 @@ hug -f api.py
 ## Comment Utiliser l'API
 
 Pour visualiser tous les pokemons, il faut se rendre sur le lien suivant :
-```
 Attention : Vérifier que le __serveur python__ est bien lancé
-```
+
 
 ```
 http://localhost:8000/pokemon
@@ -72,6 +71,7 @@ On peut le télécharger sur le lien suivant : https://www.getpostman.com/apps
 Les fonctionnalités sont listées dans le dossier __documentation API__.
 Pour consulter la documentation, ouvrir le fichier __index.html__
 
+-----------------
 ## Auteur
 
 * **Yacine Souadda** - [Luwata](https://github.com/luwata)
