@@ -57,8 +57,10 @@ hug -f api.py
 
 ## Comment Utiliser l'API
 
-Pour visualiser tous les pokemons, il faut qe rendre sur le lien suivant :
-(Attention : Vérifier que le __serveur python__ est bien lancé)
+Pour visualiser tous les pokemons, il faut se rendre sur le lien suivant :
+```
+Attention : Vérifier que le __serveur python__ est bien lancé
+```
 
 ```
 http://localhost:8000/pokemon
