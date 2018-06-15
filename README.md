@@ -55,17 +55,17 @@ Ensuite, on va éxécuter notre serveur python en même temps que l'API.
 hug -f api.py
 ```
 
-## Comment Utiliser l'API
+## Comment utiliser l'API
 
 Pour visualiser tous les pokemons, il faut se rendre sur le lien suivant :
-Attention : Vérifier que le __serveur python__ est bien lancé
+**Attention : Vérifier que le __serveur python__ est bien lancé**
 
 
 ```
 http://localhost:8000/pokemon
 ```
 
-Pour les autres fonctionnalités de l'API, il faut utiliser l'outil Postman.
+Pour les autres fonctionnalités de l'API, il faut utiliser l'outil __Postman__.
 On peut le télécharger sur le lien suivant : https://www.getpostman.com/apps
 
 Les fonctionnalités sont listées dans le dossier __documentation API__.
