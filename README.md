@@ -28,16 +28,17 @@ pip3 install hug --upgrade
 #### Sur Windows
 
 ##### Installer MySQL
-	Pour télécharger MySQL, vous pouvez vous rendre sur le site suivant :
+Pour télécharger MySQL, vous pouvez vous rendre sur le site suivant :
 
-	http://dev.mysql.com/downloads/mysql/#downloads
+http://dev.mysql.com/downloads/mysql/#downloads
 
-	Sélectionnez l'OS sur lequel vous travaillez (Windows).
+Sélectionnez l'OS sur lequel vous travaillez (Windows).
 
-	Téléchargez MySQL avec l'installeur (MSI Installer), puis exécutez le fichier téléchargé. L'installeur démarre et vous guide lors de l'installation.
+Téléchargez MySQL avec l'installeur (MSI Installer), puis exécutez le fichier téléchargé. L'installeur démarre et vous guide lors de l'installation.
 
 ##### Installer un terminal pour éxécuter des commandes linux
-	Utilisez une console comme Cmder pour pouvoir éxecuter les même commandes ci-dessus : http://cmder.net/
+
+Utilisez une console comme Cmder pour pouvoir éxecuter les même commandes ci-dessus : http://cmder.net/
 
 ### Installation
 
